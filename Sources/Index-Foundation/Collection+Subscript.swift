@@ -1,10 +1,12 @@
 import Foundation
 
 public extension Collection {
+    //array[safe: 4]
     subscript (safe index: Index) -> Element? {
       return indices.contains(index) ? self[index] : nil
     }
     
+    // array[1,4,5]
     subscript (indexs: Index...) -> [Element] {
         var result: [Self.Element] = []
         for index in indexs {
@@ -15,6 +17,7 @@ public extension Collection {
         return result
     }
     
+    //array[stride: 2]
     subscript(stride step: Int) -> [Element] {
         precondition(step > 0, "Stride must be greater than zero")
         
